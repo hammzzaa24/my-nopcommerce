@@ -1,12 +1,12 @@
-# استخدام بيئة تشغيل دوت نت 8 الرسمية والخفيفة من مايكروسوفت
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# استخدام بيئة تشغيل دوت نت 7 الرسمية والخفيفة من مايكروسوفت
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
 
 # تثبيت الأدوات الأساسية لفك الضغط داخل السيرفر
 RUN apt-get update && apt-get install -y wget unzip && rm -rf /var/lib/apt/lists/*
 
-# جلب النسخة المجمعة الجاهزة للتشغيل مباشرة من سيرفرات السورس كود الرسمية لـ nopCommerce
-RUN wget https://github.com/nopSolutions/nopCommerce/releases/download/release-4.70.5/nopCommerce_4.70.5_NoSource_linux_x64.zip -O nopcommerce.zip \
+# جلب نسخة مستقرة ومجربة بالكامل تتوافق مع قيود السيرفرات المجانية
+RUN wget https://github.com/nopSolutions/nopCommerce/releases/download/release-4.60.5/nopCommerce_4.60.5_NoSource_linux_x64.zip -O nopcommerce.zip \
     && unzip nopcommerce.zip -d . \
     && rm nopcommerce.zip
 
